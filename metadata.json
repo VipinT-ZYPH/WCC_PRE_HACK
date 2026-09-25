@@ -1,0 +1,6 @@
+{
+  "name": "BrandForge AI",
+  "description": "Transform rough product, startup, or community ideas into launch-ready brand identities through a multi-stage AI intelligence workflow.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
