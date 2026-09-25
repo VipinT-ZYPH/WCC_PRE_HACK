@@ -145,18 +145,18 @@ export default function VisualizePage() {
               <div className="space-y-8">
                 <div>
                   <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500 block mb-4">Heading Font</label>
-                  <div className="text-4xl font-bold text-white mb-2">{activeProject.visualIdentity.typography.heading}</div>
+                  <div className="text-4xl font-bold text-white mb-2">{activeProject.visualIdentity?.typography?.heading || 'Plus Jakarta Sans'}</div>
                   <p className="text-2xl text-slate-400">The quick brown fox jumps over the lazy dog.</p>
                 </div>
                 <div>
                   <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500 block mb-4">Body Font</label>
-                  <div className="text-lg font-medium text-white mb-2">{activeProject.visualIdentity.typography.body}</div>
+                  <div className="text-lg font-medium text-white mb-2">{activeProject.visualIdentity?.typography?.body || 'Inter'}</div>
                   <p className="text-slate-400 leading-relaxed">Design is not just what it looks like and feels like. Design is how it works. A well-chosen typeface conveys emotion and professionalism without saying a word.</p>
                 </div>
               </div>
               <div className="p-6 rounded-2xl bg-indigo-600/10 border border-indigo-500/20">
                 <h4 className="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-4">Typography Rationale</h4>
-                <p className="text-sm text-slate-300 leading-relaxed italic">&quot;{activeProject.visualIdentity.typography.rationale}&quot;</p>
+                <p className="text-sm text-slate-300 leading-relaxed italic">&quot;{activeProject.visualIdentity?.typography?.rationale || 'Selected for crisp legibility and high contrast across digital platforms.'}&quot;</p>
               </div>
             </div>
           </section>

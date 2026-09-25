@@ -148,18 +148,74 @@ function getSmartFallbackResponse(contents: any): string {
 
   if (lower.includes('archetype') || lower.includes('voice') || lower.includes('shape')) {
     return JSON.stringify({
-      archetype: "The Visionary / Creator",
-      archetypeDescription: "Driven by imagination, innovation, and the desire to build enduring value. Bold, insightful, and inspiring.",
-      voiceTraits: ["Confident", "Articulate", "Empathetic", "Forward-looking"],
-      vocabulary: [
-        { do: "Clear, purposeful terminology", dont: "Overly dense buzzwords" },
-        { do: "Empowering and inspiring phrasing", dont: "Aggressive or pushy sales jargon" }
+      personalityTraits: [
+        {
+          trait: "Visionary & Inspiring",
+          why: "Creates an immediate impression of category leadership and high ambition.",
+          appearance: "Empowering, future-focused headlines and clean, confident statements."
+        },
+        {
+          trait: "Articulate & Clear",
+          why: "Removes friction and complexity for busy founders and decision makers.",
+          appearance: "Direct value propositions, crisp bullet points, and plain-spoken promises."
+        },
+        {
+          trait: "Relentlessly Empathetic",
+          why: "Builds deep, lasting customer trust through shared goals.",
+          appearance: "Focus on user outcomes and human-centric storytelling."
+        }
       ],
-      sampleCopy: {
-        headline: "Shape the Future of Your Brand",
-        subheading: "Intuitive strategies engineered for clarity, resonance, and category leadership.",
-        cta: "Explore Your Potential",
-        about: "We partner with ambitious founders to translate bold ideas into iconic, memorable brand identities."
+      traitsToAvoid: ["Arrogant", "Overly academic", "Corporate buzzwords", "Passive tone"],
+      namingTerritories: [
+        {
+          id: "terr-1",
+          territory: "Abstract & Elevating",
+          names: [
+            {
+              name: "Aetheria",
+              concept: "Evokes atmospheric presence, weightlessness, and expansive growth.",
+              why: "Memorable 4-syllable name with premium phonetics.",
+              weakness: "May require spelling confirmation on voice channels."
+            },
+            {
+              name: "Vantage",
+              concept: "Positions the brand as a superior viewpoint for clarity.",
+              why: "Short, powerful real-word anchor.",
+              weakness: "Common term in commercial real estate."
+            },
+            {
+              name: "Lumina",
+              concept: "Implies illumination, insight, and guiding brightness.",
+              why: "High warm feeling and intuitive pronunciation.",
+              weakness: "Similar sound to tech components."
+            }
+          ]
+        },
+        {
+          id: "terr-2",
+          territory: "Compound & Functional",
+          names: [
+            {
+              name: "BrandForge",
+              concept: "Combines craftsmanship with powerful automated creation.",
+              why: "Immediately communicates what the product builds.",
+              weakness: "More literal descriptor than abstract brand."
+            },
+            {
+              name: "ForgeCraft",
+              concept: "Focuses on intentional, engineered brand architecture.",
+              why: "Strong industrial trust and durability.",
+              weakness: "Slightly heavier tone."
+            }
+          ]
+        }
+      ],
+      tagline: "Clarity in Motion.",
+      oneLinePitch: "The intelligent brand strategy workspace built to turn raw concepts into market icons.",
+      messagingHierarchy: {
+        hero: "Shape the Future of Your Brand",
+        supporting: "Intuitive AI-driven strategies engineered for clarity, resonance, and category leadership.",
+        cta: "Explore Your Potential"
       }
     });
   }
