@@ -150,7 +150,7 @@ function ListCard({ title, items }: { title: string; items: string[] }) {
     <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
       <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4">{title}</h3>
       <ul className="space-y-2">
-        {items.map((item, i) => (
+        {(items || []).map((item, i) => (
           <li key={i} className="text-sm text-slate-300 flex items-start gap-2">
             <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-1.5 shrink-0" />
             {item}

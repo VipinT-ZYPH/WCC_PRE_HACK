@@ -1,4 +1,4 @@
-import { ai, MODELS, parseGeminiResponse } from "@/lib/gemini";
+import { MODELS, generateWithFallback, parseGeminiResponse } from "@/lib/gemini";
 import { Type } from "@google/genai";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
       Provide colors (hex codes), typography, and visual concepts.
     `;
 
-    const response = await ai.models.generateContent({
+    const response = await generateWithFallback({
       model: MODELS.FLASH,
       contents: prompt,
       config: {

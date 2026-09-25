@@ -114,11 +114,11 @@ export default function ShapePage() {
               <h2 className="text-xl font-bold">Naming Territories</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {activeProject.shape.namingTerritories.map((territory) => (
+              {(activeProject.shape?.namingTerritories || []).map((territory) => (
                 <div key={territory.id} className="space-y-4">
                   <h3 className="text-sm font-bold uppercase tracking-widest text-slate-500">{territory.territory}</h3>
                   <div className="space-y-3">
-                    {territory.names.map((nameObj) => {
+                    {(territory?.names || []).map((nameObj) => {
                       const isSelected = activeProject.shape?.selectedName === nameObj.name;
                       return (
                         <button
@@ -155,7 +155,7 @@ export default function ShapePage() {
               <h2 className="text-xl font-bold">Brand Personality</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {activeProject.shape.personalityTraits.map((trait) => (
+              {(activeProject.shape?.personalityTraits || []).map((trait) => (
                 <div key={trait.trait} className="p-4 rounded-xl bg-white/5 border border-white/5">
                   <h4 className="font-bold text-indigo-400 mb-2">{trait.trait}</h4>
                   <p className="text-xs text-slate-400 mb-4">{trait.why}</p>
@@ -169,7 +169,7 @@ export default function ShapePage() {
             <div className="mt-8 pt-8 border-t border-white/5">
               <h4 className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4">Traits to avoid</h4>
               <div className="flex flex-wrap gap-2">
-                {activeProject.shape.traitsToAvoid.map((trait) => (
+                {(activeProject.shape?.traitsToAvoid || []).map((trait) => (
                   <span key={trait} className="px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-medium">
                     &times; {trait}
                   </span>

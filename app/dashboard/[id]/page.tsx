@@ -70,7 +70,7 @@ export default function DashboardOverview() {
         <h3 className="font-bold mb-4">Workflow Progress</h3>
         <div className="grid grid-cols-1 gap-3">
           {steps.map((step, i) => {
-            const isCompleted = activeProject.completedStages.includes(step.id as any);
+            const isCompleted = (activeProject?.completedStages || []).includes(step.id as any);
             const isActive = activeProject.currentStage === step.id;
             
             return (

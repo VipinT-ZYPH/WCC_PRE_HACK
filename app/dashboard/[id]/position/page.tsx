@@ -106,7 +106,7 @@ export default function PositioningPage() {
           className="space-y-10"
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {activeProject.positioning.directions.map((direction) => {
+            {(activeProject.positioning?.directions || []).map((direction) => {
               const isSelected = activeProject.positioning?.selectedDirectionId === direction.id;
               return (
                 <button

@@ -112,7 +112,7 @@ export default function VisualizePage() {
                 </div>
                 <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500 block text-center">Primary</span>
               </div>
-              {activeProject.visualIdentity.secondaryColors.map((color, i) => (
+              {(activeProject.visualIdentity?.secondaryColors || []).map((color, i) => (
                 <div key={i} className="space-y-2">
                   <div 
                     className="aspect-square rounded-2xl shadow-inner flex items-end p-3" 

@@ -101,7 +101,7 @@ export default function ChallengePage() {
               <h3 className="text-xl font-bold">{activeProject.critique.overallStatus}</h3>
             </div>
             <div className="flex -space-x-2">
-              {activeProject.critique.strengths.map((_, i) => (
+              {(activeProject.critique?.strengths || []).map((_, i) => (
                 <div key={i} className="w-8 h-8 rounded-full bg-green-500/20 border border-green-500/50 flex items-center justify-center text-green-400">
                   <Check className="w-4 h-4" />
                 </div>
@@ -116,7 +116,7 @@ export default function ChallengePage() {
                 Identified Issues
               </h3>
               <div className="space-y-4">
-                {activeProject.critique.issues.map((issue, i) => (
+                {(activeProject.critique?.issues || []).map((issue, i) => (
                   <div key={i} className={`p-5 rounded-2xl border transition-all ${
                     issue.severity === 'high' ? 'bg-red-500/5 border-red-500/30' : 'bg-orange-500/5 border-orange-500/20'
                   }`}>
@@ -146,7 +146,7 @@ export default function ChallengePage() {
                   Strategic Strengths
                 </h3>
                 <div className="space-y-3">
-                  {activeProject.critique.strengths.map((strength, i) => (
+                  {(activeProject.critique?.strengths || []).map((strength, i) => (
                     <div key={i} className="p-4 rounded-xl bg-green-500/5 border border-green-500/10 text-sm text-slate-300 flex items-start gap-3">
                       <Check className="w-4 h-4 text-green-400 mt-0.5 shrink-0" />
                       {strength}
@@ -161,7 +161,7 @@ export default function ChallengePage() {
                   Recommended Changes
                 </h3>
                 <ul className="space-y-3">
-                  {activeProject.critique.recommendedChanges.map((change, i) => (
+                  {(activeProject.critique?.recommendedChanges || []).map((change, i) => (
                     <li key={i} className="text-sm text-slate-400 flex items-start gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-1.5 shrink-0" />
                       {change}

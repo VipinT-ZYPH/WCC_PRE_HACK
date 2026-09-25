@@ -1,4 +1,4 @@
-import { ai, MODELS, parseGeminiResponse } from "@/lib/gemini";
+import { MODELS, generateWithFallback, parseGeminiResponse } from "@/lib/gemini";
 import { Type } from "@google/genai";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
       Provide 3-5 personality traits and 3-5 naming territories with 3 candidate names each.
     `;
 
-    const response = await ai.models.generateContent({
+    const response = await generateWithFallback({
       model: MODELS.FLASH,
       contents: prompt,
       config: {

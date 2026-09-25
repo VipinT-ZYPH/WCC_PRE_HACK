@@ -23,6 +23,14 @@ export function ProjectProvider({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    const handleChunkError = (event: ErrorEvent) => {
+      if (event?.error?.name === 'ChunkLoadError' || (event?.message && event.message.includes('Loading chunk'))) {
+        console.warn('ChunkLoadError caught, refreshing client bundle...');
+        window.location.reload();
+      }
+    };
+    window.addEventListener('error', handleChunkError);
+
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
       try {
@@ -33,6 +41,8 @@ export function ProjectProvider({ children }: { children: ReactNode }) {
       }
     }
     setIsLoading(false);
+
+    return () => window.removeEventListener('error', handleChunkError);
   }, []);
 
   const saveProjects = (updatedProjects: BrandProject[]) => {

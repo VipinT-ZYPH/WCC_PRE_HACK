@@ -90,7 +90,7 @@ export default function DeliverPage() {
                 Launch Assets
               </h3>
               <div className="space-y-4">
-                {activeProject.deliver.launchAssets.map((asset, i) => (
+                {(activeProject.deliver?.launchAssets || []).map((asset, i) => (
                   <div key={i} className="p-6 rounded-2xl bg-white/5 border border-white/10 group hover:border-white/20 transition-all">
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-2">
