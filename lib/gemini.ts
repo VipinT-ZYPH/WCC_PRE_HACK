@@ -1,11 +1,13 @@
 import { GoogleGenAI } from "@google/genai";
 
-if (!process.env.GEMINI_API_KEY) {
+const apiKey = process.env.GEMINI_API_KEY || process.env.GEMINI_API;
+
+if (!apiKey) {
   throw new Error("GEMINI_API_KEY is not set in environment variables");
 }
 
 export const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY,
+  apiKey: apiKey,
   httpOptions: {
     headers: {
       'User-Agent': 'aistudio-build',
@@ -14,9 +16,8 @@ export const ai = new GoogleGenAI({
 });
 
 export const MODELS = {
-  FLASH: "gemini-3.8-flash",
-  // Using FLASH as fallback for PRO to avoid paid model flow errors during hackathon
-  PRO: "gemini-3.8-flash", 
+  FLASH: "gemini-3.6-flash",
+  PRO: "gemini-3.6-flash", 
 };
 
 export function parseGeminiResponse(text: string | undefined) {
