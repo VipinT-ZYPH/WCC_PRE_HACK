@@ -1,0 +1,67 @@
+{
+  "entities": {
+    "BrandProject": {
+      "title": "BrandProject",
+      "description": "Represents a brand identity project throughout its creation stages.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the project"
+        },
+        "name": {
+          "type": "string",
+          "description": "Brand or project name"
+        },
+        "roughIdea": {
+          "type": "string",
+          "description": "Initial raw idea summary"
+        },
+        "targetAudience": {
+          "type": "string",
+          "description": "Target audience description"
+        },
+        "industry": {
+          "type": "string",
+          "description": "Industry sector"
+        },
+        "market": {
+          "type": "string",
+          "description": "Target market"
+        },
+        "goal": {
+          "type": "string",
+          "description": "Primary goal"
+        },
+        "constraints": {
+          "type": "string",
+          "description": "Project constraints"
+        },
+        "currentStage": {
+          "type": "string",
+          "enum": ["discover", "position", "shape", "visualize", "challenge", "deliver"]
+        },
+        "completedStages": {
+          "type": "array"
+        },
+        "updatedAt": {
+          "type": "number",
+          "description": "Timestamp of last update"
+        },
+        "userId": {
+          "type": "string",
+          "description": "UID of owner user or session"
+        }
+      },
+      "required": ["id", "name", "roughIdea", "currentStage", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/projects/{projectId}": {
+      "schema": {
+        "$ref": "#/entities/BrandProject"
+      },
+      "description": "Stores brand forge projects"
+    }
+  }
+}

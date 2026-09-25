@@ -25,7 +25,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const params = useParams();
   const router = useRouter();
   const pathname = usePathname();
-  const { projects, setActiveProjectId, activeProject, isLoading } = useProjectStore();
+  const { projects, setActiveProjectId, activeProject, isLoading, currentUser, signInWithGoogle, logout } = useProjectStore();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -173,7 +173,27 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             </div>
           </div>
           <div className="flex items-center gap-4">
-             {/* Action buttons could go here */}
+            {currentUser ? (
+              <div className="flex items-center gap-3">
+                <div className="text-right">
+                  <p className="text-xs font-bold text-white leading-none">{currentUser.displayName || 'User'}</p>
+                  <p className="text-[10px] text-slate-400 truncate max-w-[120px]">{currentUser.email}</p>
+                </div>
+                <button
+                  onClick={logout}
+                  className="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-xs font-medium text-slate-300 border border-white/10 transition-colors"
+                >
+                  Sign Out
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={signInWithGoogle}
+                className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold flex items-center gap-2 transition-all shadow-md shadow-indigo-500/20"
+              >
+                <span>Sign In with Google</span>
+              </button>
+            )}
           </div>
         </header>
 
